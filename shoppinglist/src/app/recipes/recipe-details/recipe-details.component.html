@@ -1,4 +1,3 @@
-
 <div class="row">
   <div class="row">
     <div class="col-xs-12">
@@ -12,7 +11,7 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <div class="btn-group">
+      <div class="btn-group" app-dropdown>
         <button type="button" class="btn btn-primary dropdown-toggle"> Manage Recipe
           <span class="caret"></span>
         </button>
@@ -31,7 +30,14 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      Ingredients
+      <ul class="list-group">
+      <li  class="list-group-item">
+        {{recipe.ingrediant_name}}
+      </li>
+        <li class="list-group-item">
+          {{recipe.amount}}
+        </li>
+      </ul>
     </div>
   </div>
 

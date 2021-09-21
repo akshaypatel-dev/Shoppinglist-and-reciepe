@@ -1,5 +1,5 @@
 
 export interface IngrediantsModel {
-  name:string;
+  ingrediant_name:string;
   amount:number;
 }
