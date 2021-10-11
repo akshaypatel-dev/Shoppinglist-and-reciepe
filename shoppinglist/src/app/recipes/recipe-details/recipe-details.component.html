@@ -1,46 +1,43 @@
 <div class="row">
   <div class="row">
     <div class="col-xs-12">
-      <img style="max-height: 300px" [src]="recipe.imagepath" alt="{{recipe.name}}" class="img-responsive">
+      <img style="height: 300px;width:300px;border-radius: 50%;margin-left:auto;margin-right:auto" [src]="recipe.imagepath" alt="{{recipe.name}}" class="img-responsive">
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <h1 style="color: azure" class="label-success">{{recipe.name}}</h1>
+      <h2 style="text-align: center;color: white;padding: 5px;width: 70%;margin:20px auto" class="label-primary">{{recipe.name}}</h2>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
       <div class="btn-group" app-dropdown>
-        <button type="button" class="btn btn-primary dropdown-toggle"> Manage Recipe
+        <button style="margin-right:0" type="button" class="btn btn-primary dropdown-toggle"> Manage Recipe
           <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-          <li><a href="">To shopping List</a></li>
-          <li><a href="">Edit Recipe</a></li>
-          <li><a href="">Delete Recipe</a></li>
+          <li><a (click)="shoppinglistadded()" style="cursor: pointer;">To shopping List</a></li>
+          <li><a (click)="editrecipe()">Edit Recipe</a></li>
+          <li><a>Delete Recipe</a></li>
         </ul>
       </div>
     </div>
   </div>
+  <hr>
   <div class="row">
     <div class="col-xs-12">
-      Description
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <ul class="list-group">
-      <li  class="list-group-item">
-        {{recipe.ingrediant_name}}
-      </li>
+      <h3 class="label-primary" style="padding: 5px;color: white;text-align: center"> Ingredients needed for Recipe</h3>
+
+      <ul class="list-group" *ngFor="let i of recipe.ingredients">
         <li class="list-group-item">
-          {{recipe.amount}}
+          <b> Ingrediant name: </b>{{i.ingredients_name}}
+          <hr>
+          <b> Amount: </b>{{i.amount}}
         </li>
       </ul>
     </div>
-  </div>
 
-</div>
+  </div>
+  </div>
 
 

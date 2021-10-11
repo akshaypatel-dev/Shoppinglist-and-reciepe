@@ -1,10 +1,9 @@
 import {IngrediantsModel} from "../shared/ingrediants.model";
 
-export interface RecipeModel extends IngrediantsModel {
+export interface RecipeModel{
   name:string
   description:string;
   imagepath:string;
-  ingrediant_name:string;
-  amount:number;
+  ingredients:IngrediantsModel[]
 
 }

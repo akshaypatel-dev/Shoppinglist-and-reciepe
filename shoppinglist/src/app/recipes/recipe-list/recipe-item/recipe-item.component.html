@@ -1,17 +1,16 @@
 
-<a href="#" class="list-group-item clearfix"
-(click)="onselect()">
+<a class="list-group-item clearfix" [routerLink]="[index]" routerLinkActive="active">
   <div class="pull-left">
     <h4 class="list-group-item-heading">
       {{recipes.name}}
     </h4>
-    <p class="list-group-item-text"> {{recipes.description}}</p>
+    <p class="list-group-item-text pull-left"> {{recipes.description}}</p>
   </div>
   <span class="pull-right">
-        <img
+        <img height="200px" width="200px"
           src="{{recipes.imagepath}}"
           alt="{{recipes.name}}"
           class="img-responsive"
-          style="max-height: 50px">
+          style="padding:30px;border-radius: 50%">
       </span>
 </a>
