@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
 <div class="navbar-header">
-  <a routerLink="/recipes" class="navbar-brand"> <img height="25px" src="../../favicon.ico" alt=""> </a>
+  <a routerLink="/recipes" class="navbar-brand"> <img height="25px" src="../../favicon.ico" alt=" recipe image logo"> </a>
 </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
@@ -10,11 +10,11 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" app-dropdown >
-          <a href="#">Manage <span class="caret"></span></a>
+          <a>Manage <span class="caret"></span></a>
 
           <ul class="dropdown-menu">
-            <li><a href="#">save data</a></li>
-            <li><a href="#"> fetch data</a></li>
+            <li><a (click)="onsavedata()">save data</a></li>
+            <li><a (click)="fetchdata()"> fetch data</a></li>
 
           </ul>
       </ul>

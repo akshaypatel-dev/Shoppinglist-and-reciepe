@@ -8,7 +8,6 @@ import {Subject} from "rxjs";
   providedIn: 'root'
 })
 export class RecipeService implements OnInit {
-  recipeschanged = new Subject<RecipeModel[]>()
   recipes: RecipeModel[] = [
     {
       name: 'paneer tikka masala',
@@ -44,6 +43,7 @@ export class RecipeService implements OnInit {
       ingredients: [{ingredients_name: 'Boneless, Skinless Chicken Breasts', amount: 3,},{ingredients_name: 'Cherry or Charm Tomatoes', amount: 4}]
     },
   ]
+  recipeschanged = new Subject<RecipeModel[]>()
 
   ngOnInit(): void {
     this.recipes
@@ -55,7 +55,10 @@ export class RecipeService implements OnInit {
   getrecipes() {
     return this.recipes.slice()
   }
-
+setrecipes(recipes:RecipeModel[]){
+    this.recipes = recipes;
+    this.recipeschanged.next(this.recipes.slice())
+}
   ingrediantaddtoshoppinglist(ingredients: IngrediantsModel[]) {
     this.slservice.addingrediants(ingredients)
   }
@@ -64,15 +67,18 @@ export class RecipeService implements OnInit {
     return this.recipes.slice()[index]
   }
 
-  addrecipe(recipe: RecipeModel[]) {
-    this.recipes.push(...recipe);
-    this.recipeschanged.next(this.recipes)
-
-  }
-
   updaterecipe(index: number, newrecipe: RecipeModel) {
     this.recipes[index] = newrecipe;
-    this.recipeschanged.next(this.recipes)
+    this.recipeschanged.next(this.recipes.slice())
+      }
+  addrecipe(recipe: RecipeModel) {
+    this.recipes.push(recipe);
+    this.recipeschanged.next(this.recipes.slice());
+
+  }
+  deletereceipe(index:number){
+    this.recipes.splice(index,1);
+    this.recipeschanged.next(this.recipes.slice());
 
   }
 }

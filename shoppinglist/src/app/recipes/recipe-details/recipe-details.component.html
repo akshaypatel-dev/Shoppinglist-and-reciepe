@@ -1,12 +1,21 @@
 <div class="row">
   <div class="row">
     <div class="col-xs-12">
-      <img style="height: 300px;width:300px;border-radius: 50%;margin-left:auto;margin-right:auto" [src]="recipe.imagepath" alt="{{recipe.name}}" class="img-responsive">
+      <img
+        style="height:300px;
+      width: 300px;
+      border: 5px solid #337ab7 ;padding: 10px;
+      margin-left: auto;
+      margin-right: auto"
+        src="{{recipe.imagepath}}"
+        alt="{{recipe.name}}"
+        class="img-responsive">
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <h2 style="text-align: center;color: white;padding: 5px;width: 70%;margin:20px auto" class="label-primary">{{recipe.name}}</h2>
+      <h2 style="text-align: center;color: white;padding: 5px;width: 70%;margin:20px auto"
+          class="label-primary">{{recipe.name}}</h2>
     </div>
   </div>
   <div class="row">
@@ -18,7 +27,7 @@
         <ul class="dropdown-menu">
           <li><a (click)="shoppinglistadded()" style="cursor: pointer;">To shopping List</a></li>
           <li><a (click)="editrecipe()">Edit Recipe</a></li>
-          <li><a>Delete Recipe</a></li>
+          <li><a (click)="ondelete()">Delete Recipe</a></li>
         </ul>
       </div>
     </div>
@@ -26,18 +35,18 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <h3 class="label-primary" style="padding: 5px;color: white;text-align: center"> Ingredients needed for Recipe</h3>
-
-      <ul class="list-group" *ngFor="let i of recipe.ingredients">
+      <h2> Ingredients needed for Recipe</h2>
+      <ul class="list-group" *ngFor="let ingredians of recipe.ingredients">
         <li class="list-group-item">
-          <b> Ingrediant name: </b>{{i.ingredients_name}}
-          <hr>
-          <b> Amount: </b>{{i.amount}}
+          {{ingredians.ingredients_name}}
+        </li>
+        <li class="list-group-item">
+          {{ingredians.amount}}
+
         </li>
       </ul>
     </div>
-
   </div>
-  </div>
+</div>
 
 

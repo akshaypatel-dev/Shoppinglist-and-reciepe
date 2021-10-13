@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {RecipeModel} from "../recipe.model";
 import {RecipeService} from "../recipe.service";
 import {ActivatedRoute, Params, Router} from "@angular/router";
-import {IngrediantsModel} from "../../shared/ingrediants.model";
 
 @Component({
   selector: 'app-recipe-details',
@@ -33,6 +32,9 @@ export class RecipeDetailsComponent implements OnInit {
 
   editrecipe() {
   this.router.navigate(['edit'],{relativeTo:this.route})
+  }
+  ondelete(){
+    this.recipeService.deletereceipe(this.id)
   }
 }
 
