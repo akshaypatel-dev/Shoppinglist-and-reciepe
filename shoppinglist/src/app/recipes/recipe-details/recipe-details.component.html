@@ -35,7 +35,7 @@
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <h2> Ingredients needed for Recipe</h2>
+      <p>{{recipe.description}}</p>
       <ul class="list-group" *ngFor="let ingredians of recipe.ingredients">
         <li class="list-group-item">
           {{ingredians.ingredients_name}}
