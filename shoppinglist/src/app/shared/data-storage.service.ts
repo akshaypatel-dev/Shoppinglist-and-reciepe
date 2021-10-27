@@ -3,7 +3,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {RecipeService} from "../recipes/recipe.service";
 import {RecipeModel} from "../recipes/recipe.model";
 import {exhaustMap, map, take, tap} from "rxjs/operators";
-import {AuthService} from "../auth.service";
+import {AuthService} from "../auth/auth.service";
 import {userError} from "@angular/compiler-cli/src/transformers/util";
 
 @Injectable({

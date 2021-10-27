@@ -4,39 +4,29 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from "./header/header.component";
-import {RecipesComponent} from './recipes/recipes.component';
-import {RecipeListComponent} from './recipes/recipe-list/recipe-list.component';
-import {RecipeItemComponent} from './recipes/recipe-list/recipe-item/recipe-item.component';
-import {ShoppingListComponent} from './shopping-list/shopping-list.component';
-import {ShoppingEditComponent} from './shopping-list/shopping-edit/shopping-edit.component';
-import {RecipeDetailsComponent} from './recipes/recipe-details/recipe-details.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {DropdownDirective} from "./shared/dropdown.directive";
-import {RecipeStartComponent} from './recipes/recipe-start/recipe-start.component';
-import {RecipeEditComponent} from './recipes/recipe-edit/recipe-edit.component';
-import {AuthComponent} from './auth/auth/auth.component';
-import {LoadingspinnerComponent} from './shared/loadingspinner/loadingspinner.component';
+import { ReactiveFormsModule} from "@angular/forms";
 import {ShoppinglistService} from "./shopping-list/shoppinglist.service";
 import {RecipeService} from "./recipes/recipe.service";
 import {AuthinterceptorService} from "./auth/authinterceptor.service";
+import {RecipesRoutingModule} from "./recipes/recipes-routing.module";
+import {ShoppingListModule} from "./shopping-list/shopping-list.module";
+import {SharedModule} from "./shared/shared.module";
+import {AuthModule} from "./auth/auth.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeItemComponent,
-    ShoppingListComponent,
-    ShoppingEditComponent,
-    RecipeDetailsComponent, DropdownDirective, RecipeStartComponent, RecipeEditComponent, AuthComponent, LoadingspinnerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RecipesRoutingModule,
+    ShoppingListModule,
+    SharedModule,
+    AuthModule
   ],
   providers: [
     ShoppinglistService, RecipeService,
@@ -45,6 +35,8 @@ import {AuthinterceptorService} from "./auth/authinterceptor.service";
       useClass: AuthinterceptorService,
       multi: true
     }
+  ],
+  exports: [
   ],
   bootstrap: [AppComponent]
 })
